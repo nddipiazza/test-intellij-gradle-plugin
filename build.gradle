@@ -28,6 +28,6 @@ sourceCompatibility = 1.8
 
 idea.project.settings {
   taskTriggers {
-    beforeBuild copyTestFile
+    afterSync copyTestFile
   }
 }
