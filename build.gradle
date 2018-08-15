@@ -1,0 +1,33 @@
+plugins {
+  id "org.jetbrains.gradle.plugin.idea-ext" version "0.4.1"
+}
+
+group 'com.example'
+version '1.0.0'
+
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "org.jetbrains.gradle.plugin.idea-ext"
+
+repositories {
+  mavenCentral()
+}
+
+task copyTestFile(type: Copy) {
+  from("${projectDir.absolutePath}") {
+    include '*.txt'
+  }
+  into "${projectDir.absolutePath}/test"
+}
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+sourceCompatibility = 1.8
+
+idea.project.settings {
+  taskTriggers {
+    beforeBuild copyTestFile
+  }
+}
