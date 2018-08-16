@@ -3,10 +3,6 @@ project with intellij's gradle ext plugin https://github.com/JetBrains/gradle-id
 
 * Open project in intellij
 * Do a gradle refresh
-* Do a project build
 
-Note: The triggered task "copyTestFile" did not occur because you will not see ./test/test.txt
-
-If this worked, that file would have been copied.  
-
+The triggered task "copyTestFile" will have been called and you will see the test/test.txt file indeed is created.
  
